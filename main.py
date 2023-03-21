@@ -11,7 +11,9 @@ def generate_brainfuck(num):
     stack = []
 
     for i in range(num):
-        instruction = random.choice(['+', '-', '<', '>', '.', '['])
+        instructions = ['+', '-', '<', '>', '.', '[']
+        weights = [2.8, 0.2, 0.2, 0.2, 0.2, 0.6]
+        instruction = random.choices(instructions, weights)[0]
         code += instruction
 
         if instruction == '[':
@@ -103,7 +105,7 @@ def execute_brainfuck(code):
 
 
 # Generate Brainfuck code
-code = generate_brainfuck(42)
+code = generate_brainfuck(1000)
 
 # Execute Brainfuck code
 
